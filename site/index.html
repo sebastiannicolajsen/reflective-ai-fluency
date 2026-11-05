@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reflective AI Fluency: the map</title>
+<meta name="description" content="An explorable 3D map of Reflective AI Fluency. Open any concept and follow how it connects to the others.">
+<link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+<a class="skip" href="#list">Skip the 3D map and use the list</a>
+
+<header class="bar">
+  <div class="brand"><span class="mark">IM_</span><span class="name">Reflective AI Fluency</span></div>
+  <button type="button" id="search-btn" class="search" aria-keyshortcuts="Control+K Meta+K">
+    <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><circle cx="7" cy="7" r="4.5" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 10.5L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    <span>Jump to a concept</span><kbd>⌘K</kbd>
+  </button>
+  <div class="bar-right">
+    <nav class="levels" id="nav" aria-label="Zoom to a part of the map"></nav>
+    <button type="button" id="theme" class="icon-btn" aria-label="Switch between light and dark"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M13 9.5A5.5 5.5 0 116.5 3a4.5 4.5 0 006.5 6.5z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></button>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="side">
+    <nav id="list" aria-label="All concepts"></nav>
+  </aside>
+
+  <section class="stage-wrap">
+    <div id="stage" role="img" aria-label="Interactive 3D map of the framework. Everything shown here is also in the list and the detail panel, which work with a keyboard and screen reader.">
+      <canvas id="canvas"></canvas>
+      <div id="labels" aria-hidden="true"></div>
+      <div id="tip" class="tip" aria-hidden="true" hidden></div>
+
+      <nav class="crumbs" id="crumbs" aria-label="Where you are"></nav>
+
+      <section class="overview" id="overview" aria-label="Overview">
+        <p class="eyebrow">Overview</p>
+        <h1 id="ov-title"></h1>
+        <p class="thread" id="ov-thread"></p>
+        <div class="clusters" id="clusters"></div>
+        <p class="eyebrow">How they relate</p>
+        <ul class="relations" id="relations"></ul>
+        <label class="own" for="step">A step of your own work <small>optional. Stays in this tab. Please keep it free of client names.</small></label>
+        <input id="step" type="text" maxlength="70" placeholder="for example: summarise a 40-page client report" autocomplete="off">
+        <p class="eyebrow">Or start from a question</p>
+        <div class="qs" id="cards"></div>
+        <p class="outcome" id="ov-outcome"></p>
+      </section>
+
+      <div class="key" id="key" aria-label="How to read the connections"></div>
+      <p class="hint" id="hint">Drag to turn · scroll to zoom · click a cloud or a concept</p>
+      <div class="tools"><button type="button" id="reset">Back to overview</button></div>
+    </div>
+    <article id="detail" class="detail" aria-live="polite" hidden></article>
+  </section>
+</div>
+
+<dialog id="palette" aria-label="Jump to a concept">
+  <input id="q" type="text" placeholder="Search concepts" autocomplete="off" spellcheck="false" aria-controls="results">
+  <ul id="results" role="listbox"></ul>
+  <p class="foot"><kbd>↑</kbd><kbd>↓</kbd> move <kbd>Enter</kbd> open <kbd>Esc</kbd> close</p>
+</dialog>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
