@@ -296,7 +296,7 @@ Numbers L01–L03 and L05–L17 match the foundation's rule numbers. L04 is rule
 
 ## D. Contested points and edge cases
 
-**C01 More human involvement is not always safer.** Human-AI combinations averaged worse than the better of the two (g = −0.23); gains where the human alone was better (g = +0.46), losses where the AI alone was better (g = −0.54). Forcing human deliberation still left human+AI below AI alone in one study. Status: edge case in the manifest; Sebastian not convinced it generalises. Sources: S06, S14.
+**C01 More human involvement is not always safer.** Human-AI combinations averaged worse than the better of the two (g = −0.23); gains where the human alone was better (g = +0.46), losses where the AI alone was better (g = −0.54). Forcing human deliberation still left human+AI below AI alone in one study. Status: edge case in the manifest; whether it generalises is open. Sources: S06, S14.
 
 **C02 Satisficing as default trap versus adaptive choice.** Simon framed satisficing as rational under limits. The manifest treats it as the failure mode of quality. Reconciliation: low-stakes steps justify stopping early (proportionate checking); the failure is accepting good enough on work that matters without having chosen to. Sources: S62.
 

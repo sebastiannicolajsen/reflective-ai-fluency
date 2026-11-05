@@ -6,7 +6,7 @@ A framework that extends Anthropic's 4D AI Fluency Framework with reflection and
 
 To install, download the `.skill` file and add it in Claude under Settings > Capabilities > Skills (or open it from a Claude chat that offers a **Save skill** button). The file is rebuilt from `source/` by `scripts/build.py`; see below.
 
-Start with [HANDOVER.md](HANDOVER.md). `source/` is the single source of truth. `evals/` holds the test cases and the runner. `archive/` holds superseded drafts.
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). `source/` is the single source of truth. `evals/` holds the test cases and the runner. `archive/` holds superseded drafts.
 
 ## Building the skill
 

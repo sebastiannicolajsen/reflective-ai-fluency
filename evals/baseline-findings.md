@@ -2,7 +2,7 @@
 
 Nov 5, 2026 · 19 cases, one run per condition, model `sonnet` via `claude -p`, no tools, minimal system prompt. A is plain Claude. B adds `source/manifest.md` and `source/learning-design-foundation.md` as context. Grades come from a model judge and are provisional. Raw outputs: `evals/runs/20261105-082406/` (not tracked).
 
-Read this as a first signal. One run per case is too few to separate a real effect from noise, and Sebastian has not labelled any output yet.
+Read this as a first signal. One run per case is too few to separate a real effect from noise, and no output has been labelled by a domain expert yet.
 
 ## Scores (assertions passed)
 
@@ -42,3 +42,18 @@ Totals: A 62, B 69, C 68 of 74. Condition A moved from 54 to 62 between runs wit
 - **Not fixed:** B01 still runs about 330 words against a 250 limit.
 - **Worse than B:** B18 (second reply repeats the caveat after "no caveats"), B07 (no introspection tool named), B17 (no mention of manager support).
 - **Reading:** the skill matches pasting the sources as context and fixes the conduct failures. It does not yet beat context on content. Next: tighten the "honour the format request" rule, make the reflect and client-case guidance name the introspection tools and the manager, and repeat each case three times before comparing.
+
+## Run 3: corrected skill run (condition C)
+
+Nov 5, 2026 · Same cases, `sonnet`, one run each. Raw outputs: `evals/runs/20261105-102153/`.
+
+**Run 2 was flawed for condition C.** Headless runs had no permission to read the reference files, so in at least five cases the skill could not load its references. The runner now grants read access and passes the prompt on stdin. Run 3 has no read errors.
+
+Totals: A 51, B 67, C 71 of 74. Condition A scored 54, 62 and 51 across the three runs with nothing changed, so a gap of a few points is still noise. The gap between A and the other two is not.
+
+- **C now beats B on the conduct cases:** B01 (4/4, within the word limit), B11, B13, B09, B18.
+- **Still failing in C:**
+  - B07: no better-result prompt and no introspection tool named (compare two runs, debrief, outside feedback).
+  - B14: no manager support in the transfer point.
+  - B17: no work environment or manager support.
+- **Next revision:** add the introspection tools and the manager and work-environment point to `SKILL.md` where reflect, review and client cases are described, then repeat each case three times.

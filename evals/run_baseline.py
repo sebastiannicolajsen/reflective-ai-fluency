@@ -5,7 +5,7 @@ A: plain Claude, minimal system prompt.
 B: same, with source/manifest.md and source/learning-design-foundation.md as context.
 C: same, with the built skill (SKILL.md in context; references readable on demand via the Read tool).
 
-Grades come from a model judge and are provisional: Sebastian labels the real ones.
+Grades come from a model judge and are provisional: a domain expert labels the real ones.
 """
 import json, re, subprocess, sys, uuid, tempfile, datetime
 from concurrent.futures import ThreadPoolExecutor
@@ -33,7 +33,9 @@ def claude(prompt, system, session=None, resume=False, tools=""):
            "--tools", tools, "--disable-slash-commands", "--setting-sources", ""]
     if session:
         cmd += ["--resume" if resume else "--session-id", session]
-    r = subprocess.run(cmd + [prompt], capture_output=True, text=True, cwd=WORKDIR)
+    if "Read" in tools:  # headless runs cannot prompt, so grant read access to the built skill explicitly
+        cmd += ["--allowedTools", "Read", "--add-dir", str(ROOT / "build")]
+    r = subprocess.run(cmd, input=prompt, capture_output=True, text=True, cwd=WORKDIR)  # prompt on stdin: --allowedTools and --add-dir are variadic and would swallow it
     if r.returncode:
         raise RuntimeError(r.stderr.strip() or r.stdout.strip())
     return r.stdout.strip()

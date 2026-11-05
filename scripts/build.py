@@ -83,7 +83,7 @@ def validate(skill_dir):
         if d > 1024:
             errs.append(f"description is {d} characters (platform limit 1024)")
         elif d > 200:
-            print(f"warning: description is {d} characters; claude.ai's help article lists 200 (open question in HANDOVER.md)")
+            print(f"warning: description is {d} characters; claude.ai's help article lists 200 (open question in CONTRIBUTING.md)")
     refs = sorted(p.name for p in (skill_dir / "references").glob("*.md"))
     for r in refs:
         if f"references/{r}" not in skill_md:
