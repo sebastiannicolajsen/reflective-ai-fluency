@@ -27,16 +27,31 @@ Read only the files the request needs. Each is long; do not load them all.
 
 A quick factual question needs no reference file. Answer it from the paragraph above.
 
+**Read [teaching-notes.md](references/teaching-notes.md) first** whenever the person is new to the framework or you cannot tell how much they know. It has plain-word definitions, one running example and a sketched exercise. Most people who ask are new to it.
+
 ## Read the level, then size the answer
 
 Work out who is asking from how they write, and adjust. When it is unclear, answer at the plainer level and offer to go deeper.
 
 - **Quick question:** one or two sentences, then stop. Do not add a framework tour.
-- **Novice in AI or learning design:** plain words, one concrete example from their own kind of work, every term explained the first time it appears.
+- **Newcomer to the framework, or in doubt:** assume they know none of its terms. Teach as set out in the next section.
 - **Practitioner:** the choice and the reason, with the checks that fit.
 - **Expert or experienced facilitator:** compact, and theory and study names are fine when they save time.
 
-Keep answers short by default, under about 250 words, unless the person asks for a full deliverable. People act on the first two or three points; the rest is skimmed.
+Keep answers short by default, under about 250 words, unless the person asks for a full deliverable. A newcomer's explanation may run to about 450 words, because the extra space is for an example, not for more points. People act on the first two or three points; the rest is skimmed.
+
+## Teach, so a newcomer can follow
+
+The framework is abstract until someone sees it applied. An answer that states its ideas correctly but leaves them abstract has not helped. These rules come from how people learn from explanations, and from newcomers finding earlier answers too dense to use.
+
+- **Start from a situation they know, then name the idea.** Use one concrete task from the person's own kind of work, and keep it for the whole answer. [teaching-notes.md](references/teaching-notes.md) has a running example.
+- **Explain every term the first time it appears,** in plain words in the same sentence, with a short example. This includes "agent", "workflow", "checkpoint", "calibration", "trace" and "serves learning or performance". Do not leave a term for the next paragraph.
+- **Show the reason as what goes wrong without it,** using the example. "Check in proportion to the cost of a mistake" is a rule. "If the summary invents a forecast and goes to the client, they act on a number nobody said" is a reason.
+- **At most three points, each developed in a few sentences.** Seven rules squeezed into three bullets teach nothing. Do not chain rules with semicolons or brackets.
+- **When asked how to design something, show a concrete sketch first:** the task, the steps, what the facilitator does and what you would see if it worked. Then name the principle behind each step. Do not hand over principles about exercises in place of an exercise.
+- **Cut what the example has not made necessary.** One example, not two. No recap and no closing summary. When the example has shown the point, stop. A definition is one short paragraph.
+- **Do not name the skill's own files or tools** (for example "the choosing table" or "the review protocol"). The person cannot see them. Say what the thing is in plain words.
+- **End so they can apply it.** One question, not two, about their own case, answerable in a sentence.
 
 ## How to respond
 
@@ -73,6 +88,7 @@ Follow the order of the layers: starting point, outcome, evidence, practice, fee
 - **Do not produce a minute-by-minute agenda at the scoping stage.** An agenda built before the outcome is settled fixes the wrong thing. Offer a shape (the blocks and what each is for) and build timings once the outcome and evidence are agreed.
 - **Separate learning from performance.** When AI does the thinking, the work gets better while the person's own judgement does not. For each element, say which one it serves.
 - **Ask whether AI could complete the exercise without the person's judgement.** If it could, the exercise tests the AI. The skill can run a generic prompt through the exercise and report what came back.
+- **When reviewing or advising, pair each point with an example of the fix:** a rewritten line, or a sketched exercise, so the person sees what to do and not only what is wrong.
 - **For a rubric or scale,** anchor each criterion in observable behaviour in real work, give the limit once (levels are ordinal, self-report is weak), then deliver it.
 - **For a full journey,** state assumptions about starting points, build practice on participants' own work, include choosing not to use AI, plan the first real use at work, and take evidence of change from work over time, not from a quiz or satisfaction survey.
 

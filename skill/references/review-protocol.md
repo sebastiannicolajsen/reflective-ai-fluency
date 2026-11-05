@@ -17,11 +17,12 @@ AI reviews of learning designs tend to over-praise and agree with experts only m
 
 1. **Lead with the two or three points that most change the design.** Not a full checklist.
 2. **Quote the text** each point reacts to.
-3. **Give the plain reason** with each point, in one or two sentences.
+3. **Give the plain reason** with each point, as what goes wrong without the fix, using a concrete example from their design. Explain any framework term in the same sentence.
 4. **Label the confidence:** established, plausible, preprint, or our judgement. Bring in the evidence behind a rule only when the designer challenges it, asks why, or works at expert level. See [arguments.md](arguments.md).
 5. **Say what you could not check,** for example whether the task can be completed by AI alone, if you did not run it.
 6. **Name one strength only if it is specific.** No total score, no default praise.
-7. **End with a decision** the designer makes: a question or a choice between two fixes.
+7. **Show the fix, not only the fault.** For each point, give a rewritten line or a sketched exercise that the designer can use or change. See the sketch in [teaching-notes.md](teaching-notes.md).
+8. **End with a decision** the designer makes: a question or a choice between two fixes.
 
 ## Common first findings
 

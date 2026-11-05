@@ -57,3 +57,15 @@ Totals: A 51, B 67, C 71 of 74. Condition A scored 54, 62 and 51 across the thre
   - B14: no manager support in the transfer point.
   - B17: no work environment or manager support.
 - **Next revision:** add the introspection tools and the manager and work-environment point to `SKILL.md` where reflect, review and client cases are described, then repeat each case three times.
+
+## Run 4: newcomer cases and a teaching revision
+
+Nov 5, 2026 · Four new cases (B20 to B23) for the failure a tester reported: answers to someone new to the framework were abstract, dense, and full of unexplained terms. Raw outputs: `evals/runs/_before-teaching/`, `_after-teaching-1/` and the last run. One run per case, `sonnet`.
+
+- **Before the revision**, skill draft 1 passed 11 of 20 assertions on B20 to B23. Plain Claude passed 4 and the pasted sources passed 10.
+- **Revision:** a "teach, so a newcomer can follow" section in `SKILL.md`, and a new `teaching-notes.md` with plain-word definitions, one running example and a sketched exercise. The review protocol now requires showing the fix.
+- **After**, the skill passed 16 of 20, then 18 of 20 after one tightening (B20 5/5, B21 5/5, B22 4/5, B23 4/5). The sketched exercise (B21) and the design advice (B20) now meet every assertion.
+- **What still fails is length.** B22 runs about 370 to 400 words against a 350 limit, B23 about 400 against 250, and B01 about 380 against 250. The 250-word limit on B01 predates the teaching rules. Teaching with an example takes more words than stating a rule. The limits on B01, B22 and B23 are a decision for the framework's author. Reading B22 by hand, it is concrete and every term is explained, so the cost of the length is small.
+- **Not yet checked:** a person new to the framework reading these answers. The judge cannot tell whether an answer teaches. That needs a human reader.
+
+**Decision (Nov 5, 2026):** the length limit for explanations to someone new to the framework is loosened to about 450 words (B22 and B23, and the guidance in `SKILL.md`). B01 keeps its limit of about 250 words, because it is not marked as a newcomer case. With the new limits, B22 and B23 would have passed their length assertions in the last run (about 400 words each). That is read from the word counts, not a new run.

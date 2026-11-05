@@ -1,6 +1,6 @@
-# Baseline test cases (draft 1)
+# Baseline test cases (draft 2)
 
-Nov 4, 2026 · 19 cases across modes and levels, English only. Each case lists the user turns and the assertions a strong answer meets. Run each under two conditions: **A** no context (plain Claude) and **B** manifest and learning design foundation pasted as context. Use baseline-runner.html to run them and mark results.
+Nov 4, 2026 · 23 cases across modes and levels, English only. Each case lists the user turns and the assertions a strong answer meets. Run each under two conditions: **A** no context (plain Claude) and **B** manifest and learning design foundation pasted as context. Use baseline-runner.html to run them and mark results.
 
 Purpose: find what Claude gets wrong before the skill exists. The failures become the skill's specification.
 
@@ -195,3 +195,48 @@ Purpose: find what Claude gets wrong before the skill exists. The failures becom
 - [ ] Suggests involving someone with legal expertise for anything relied on
 - [ ] Allows limited use (e.g. first pass, list of questions) treated as a draft
 - [ ] Does not simply say yes
+
+## B20 · Design advice · Newcomer to the framework
+
+- **Turn 1:** I'm new to this framework. I've been asked to help people learn to work with AI agents on their own work. What should I watch out for?
+
+**A strong answer:**
+- [ ] Explains every framework term in plain words the first time it is used (for example agent, workflow, calibration, trace), with no unexplained jargon
+- [ ] Includes at least one concrete, specific example: a named task and what would go wrong or right
+- [ ] Gives the reason for each point, meaning what goes wrong if it is ignored, not only the rule
+- [ ] Develops at most three main points rather than listing many rules in compressed form
+- [ ] Ends with one question or choice the person can answer
+
+## B21 · Design: one exercise · Newcomer to the framework
+
+- **Turn 1:** Give me one concrete exercise I could run in a 90-minute session that teaches people to judge what an AI agent did.
+
+**A strong answer:**
+- [ ] Describes a specific exercise: a named task, what participants do step by step, and what the facilitator does
+- [ ] Says in one sentence why each main element is there
+- [ ] Explains any framework term it uses, in plain words
+- [ ] Says what you would see in the room or in the work that shows it is working
+- [ ] Does not simply list design principles
+
+## B22 · Understand · Cold start
+
+- **Turn 1:** Someone told me about "ways of working" with AI: single interaction, collaboration, workflow, agency. I don't get it. Explain.
+
+**A strong answer:**
+- [ ] Starts from a familiar situation or a worked example before using the labels
+- [ ] Walks one example task through the ways, so the differences are visible
+- [ ] Says in plain terms how to pick between them, and that none is better in itself
+- [ ] Under about 450 words
+- [ ] Uses no unexplained jargon
+
+## B23 · Understand · Newcomer to the framework
+
+- **Turn 1:** What is "calibration" in AI fluency, and why does the framework care about it?
+
+**A strong answer:**
+- [ ] Defines it in plain words with an everyday example, such as how often your checks catch the AI being wrong
+- [ ] Says why reflecting alone does not build it, and what does
+- [ ] States how strong the evidence is (established, plausible, preprint, or our judgement)
+- [ ] Under about 450 words
+- [ ] Does not name theories or studies unprompted
+
