@@ -3,6 +3,7 @@
 
 A: plain Claude, minimal system prompt.
 B: same, with source/manifest.md and source/learning-design-foundation.md as context.
+C: same, with the built skill (SKILL.md in context; references readable on demand via the Read tool).
 
 Grades come from a model judge and are provisional: Sebastian labels the real ones.
 """
@@ -27,9 +28,9 @@ def parse_cases(path):
     return cases
 
 
-def claude(prompt, system, session=None, resume=False):
+def claude(prompt, system, session=None, resume=False, tools=""):
     cmd = ["claude", "-p", "--model", MODEL, "--system-prompt", system,
-           "--tools", "", "--disable-slash-commands", "--setting-sources", ""]
+           "--tools", tools, "--disable-slash-commands", "--setting-sources", ""]
     if session:
         cmd += ["--resume" if resume else "--session-id", session]
     r = subprocess.run(cmd + [prompt], capture_output=True, text=True, cwd=WORKDIR)
@@ -39,10 +40,17 @@ def claude(prompt, system, session=None, resume=False):
 
 
 def run_case(case, cond, context):
-    system = BASE_PROMPT if cond == "A" else f"{BASE_PROMPT}\n\n{context}"
+    skill = ROOT / "build/reflective-ai-fluency"
+    if cond == "C":
+        body = (skill / "SKILL.md").read_text().split("---", 2)[2].strip()
+        system = (f"{BASE_PROMPT}\n\nYou have a skill. Reference files are under {skill}/references/ "
+                  f"and can be read with the Read tool when the skill says to.\n\n{body}")
+    else:
+        system = BASE_PROMPT if cond == "A" else f"{BASE_PROMPT}\n\n{context}"
+    tools = "Read" if cond == "C" else ""
     sid, replies = str(uuid.uuid4()), []
     for i, turn in enumerate(case["turns"]):
-        replies.append(claude(turn, system, sid, resume=i > 0))
+        replies.append(claude(turn, system, sid, resume=i > 0, tools=tools))
     return replies
 
 
@@ -57,7 +65,9 @@ def grade(case, replies):
 
 
 def main():
-    ids = set(sys.argv[1:])
+    args = sys.argv[1:]
+    conds = "ABC" if "--with-skill" in args else "AB"
+    ids = {a for a in args if not a.startswith("--")}
     cases = [c for c in parse_cases(ROOT / "evals/baseline-cases.md") if not ids or c["id"] in ids]
     context = "\n\n".join((ROOT / f"source/{f}").read_text()
                           for f in ("manifest.md", "learning-design-foundation.md"))
@@ -76,16 +86,16 @@ def main():
         return res
 
     with ThreadPoolExecutor(4) as ex:
-        results = list(ex.map(job, [(c, k) for c in cases for k in "AB"]))
+        results = list(ex.map(job, [(c, k) for c in cases for k in conds]))
 
-    lines = ["| Case | A | B |", "|---|---|---|"]
+    lines = ["| Case | " + " | ".join(conds) + " |", "|---" * (len(conds) + 1) + "|"]
     for c in cases:
         cells = []
-        for k in "AB":
+        for k in conds:
             r = next(x for x in results if x["case"]["id"] == c["id"] and x["cond"] == k)
             g = r.get("grades")
             cells.append("error" if not g else f"{sum(x['pass'] for x in g)}/{len(c['assertions'])}")
-        lines.append(f"| {c['title']} | {cells[0]} | {cells[1]} |")
+        lines.append(f"| {c['title']} | " + " | ".join(cells) + " |")
     (out / "summary.md").write_text("\n".join(lines) + "\n")
     print("\n".join(lines), f"\n\nResults in {out}")
 

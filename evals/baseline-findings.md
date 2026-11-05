@@ -31,3 +31,14 @@ B04, B05, B06, B08, B10, B16 and B17 pass in both conditions. They do not discri
 - Assertions are binary. B09 and B18 need the second reply judged against the first, which the judge does only loosely.
 - Run each case at least three times per condition before comparing A and B.
 - Run on every model peers use, not only `sonnet`.
+
+## Run 2: first skill build (condition C)
+
+Nov 5, 2026 · Same cases, `sonnet`, one run each. C is skill draft 1: `SKILL.md` in context, references read on demand. Raw outputs: `evals/runs/20261105-083543/`.
+
+Totals: A 62, B 69, C 68 of 74. Condition A moved from 54 to 62 between runs with nothing changed, so differences of a few points are noise. Read only the pattern.
+
+- **Fixed by the skill:** B09 (holds the line), B11 (no agenda, fewer questions), B13 (leads with the main points).
+- **Not fixed:** B01 still runs about 330 words against a 250 limit.
+- **Worse than B:** B18 (second reply repeats the caveat after "no caveats"), B07 (no introspection tool named), B17 (no mention of manager support).
+- **Reading:** the skill matches pasting the sources as context and fixes the conduct failures. It does not yet beat context on content. Next: tighten the "honour the format request" rule, make the reflect and client-case guidance name the introspection tools and the manager, and repeat each case three times before comparing.
