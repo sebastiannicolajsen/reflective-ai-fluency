@@ -2,7 +2,7 @@
 
 A framework that extends Anthropic's 4D AI Fluency Framework with reflection and learning design, and the Claude skill built from it for Implement Consulting Group.
 
-[![Download the skill](https://img.shields.io/badge/Download-reflective--ai--fluency.skill-1f6feb?style=for-the-badge)](dist/reflective-ai-fluency.skill?raw=true)
+[![Download the skill](https://img.shields.io/badge/Download-reflective--ai--fluency.skill-1f6feb?style=for-the-badge)](https://raw.githubusercontent.com/sebastiannicolajsen/reflective-ai-fluency/main/dist/reflective-ai-fluency.skill)
 
 To install, download the `.skill` file and add it in Claude under Settings > Capabilities > Skills (or open it from a Claude chat that offers a **Save skill** button). The file is rebuilt from `source/` by `scripts/build.py`; see below.
 
